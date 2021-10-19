@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const handleOnChange = (e) => {
-  props.onMascotaChange(props.mascota);
+const handleClick = (props) => {
+
 };
 
 const Turno = (props) => {
@@ -22,7 +22,7 @@ const Turno = (props) => {
           <br></br>
           <fildset>Sintomas: {props.sintomas}</fildset>
           <br></br>
-          <button type="button">Eliminar</button>
+          <button onClick={handleClick}>Eliminar</button>
         </h3>
       </div>
     </StyledMensaje>
