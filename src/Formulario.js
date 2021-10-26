@@ -5,16 +5,16 @@ const Formulario = (props) => {
   const [mascota, setMascota] = useState('');
   const [dueno, setDueno] = useState('');
   const [hora, setHora] = useState('');
-  const [Fecha, setFecha] = useState('');
-  const [Sintomas, setSintomas] = useState('');
+  const [fecha, setFecha] = useState('');
+  const [sintomas, setSintomas] = useState('');
 
   const handleClick = () => {
     const turno = {
       mascota,
       dueno,
       hora,
-      Fecha,
-      Sintomas,
+      fecha,
+      sintomas,
     };
     props.onTurnoAgregado(turno);
   };
@@ -37,6 +37,7 @@ const Formulario = (props) => {
   const onSintomasChange = (e) => {
     setSintomas(e.target.value);
   };
+
   return (
     <div>
       <h1> ADMINISTRADOR DE PACIENTES </h1>
@@ -56,7 +57,9 @@ const Formulario = (props) => {
             size="10"
           />
         </label>
+
         <br></br>
+
         <label for="name">
           Nombre Dueño:
           <input
@@ -68,28 +71,35 @@ const Formulario = (props) => {
             size="10"
           />
         </label>
+
         <br></br>
-        <label for="appt" id="Hora" onChange={onHoraChange}>
+
+        <label for="name">
           Hora:
+          <input type="time" onChange={onHoraChange} />
         </label>
-        <input type="time" />
+
         <br></br>
-        <label for="appt" id="Fecha" onChange={onFechaChange}>
+
+        <label for="name">
           Fecha:
+          <input type="date" onChange={onFechaChange} />
         </label>
-        <input
-          type="date"
-          id="start"
-          name="trip-start"
-          value="2021-10-13"
-          min="2017-01-01"
-          max="2022-12-31"
-        />
+
         <br></br>
-        <label for="name" onChange={onSintomasChange}>
+
+        <label for="name">
           Sintomas:
-          <input type="text" id="Sintomas" name="name" required size="10" />
+          <input
+            type="text"
+            id="Sintomas"
+            name="name"
+            required
+            size="10"
+            onChange={onSintomasChange}
+          />
         </label>
+
         <br></br>
         <button onClick={handleClick}>Agregar Turno</button>
 
