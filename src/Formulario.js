@@ -1,22 +1,42 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const handleClick = () => {};
-
-const Formulario = () => {
+const Formulario = (props) => {
   const [mascota, setMascota] = useState('');
-  const [dueño, setDueño] = useState('');
+  const [dueno, setDueno] = useState('');
   const [hora, setHora] = useState('');
   const [Fecha, setFecha] = useState('');
   const [Sintomas, setSintomas] = useState('');
 
-  const onMascotaChange = (e) => {
-    setMascota(e.target.value);
-    setDueño(e.target.value);
-    setHora(e.target.value);
-    setFecha(e.target.value);
-    setSintomas(e.target.value);
+  const handleClick = () => {
+    const turno = {
+      mascota,
+      dueno,
+      hora,
+      Fecha,
+      Sintomas,
+    };
+    props.onTurnoAgregado(turno);
   };
 
+  const onMascotaChange = (e) => {
+    setMascota(e.target.value);
+  };
+
+  const onDuenoChange = (e) => {
+    setDueno(e.target.value);
+  };
+
+  const onHoraChange = (e) => {
+    setHora(e.target.value);
+  };
+  const onFechaChange = (e) => {
+    setFecha(e.target.value);
+  };
+
+  const onSintomasChange = (e) => {
+    setSintomas(e.target.value);
+  };
   return (
     <div>
       <h1> ADMINISTRADOR DE PACIENTES </h1>
@@ -43,18 +63,18 @@ const Formulario = () => {
             type="text"
             id="Dueño"
             name="name"
-            onChange={onMascotaChange}
+            onChange={onDuenoChange}
             required
             size="10"
           />
         </label>
         <br></br>
-        <label for="appt" id="Hora" onChange={onMascotaChange}>
+        <label for="appt" id="Hora" onChange={onHoraChange}>
           Hora:
         </label>
         <input type="time" />
         <br></br>
-        <label for="appt" id="Fecha" onChange={onMascotaChange}>
+        <label for="appt" id="Fecha" onChange={onFechaChange}>
           Fecha:
         </label>
         <input
@@ -65,10 +85,8 @@ const Formulario = () => {
           min="2017-01-01"
           max="2022-12-31"
         />
-
         <br></br>
-
-        <label for="name" onChange={onMascotaChange}>
+        <label for="name" onChange={onSintomasChange}>
           Sintomas:
           <input type="text" id="Sintomas" name="name" required size="10" />
         </label>

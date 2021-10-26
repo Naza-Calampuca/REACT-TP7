@@ -5,11 +5,19 @@ import Turno from './Turno';
 
 export default function App() {
   const [turnos, setTurnos] = useState([]);
+  const agregarTurno = (nuevoTurno) => {
+    const turnosActuales = [...turnos];
+    turnosActuales.push(nuevoTurno);
+    setTurnos(turnosActuales);
+  };
+
   return (
     <div>
-      <Formulario />
+      <Formulario onTurnoAgregado={agregarTurno} />
       <h1> ADMINISTRAR TURNOS </h1>
-      <Turno />
+      {turnos.map((turno) => {
+        return <Turno data={turno} />
+      })}
     </div>
   );
 }

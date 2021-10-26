@@ -11,16 +11,16 @@ const Turno = (props) => {
     <StyledMensaje>
       <div className={`caja caja-${props.size}`}>
         <h3>
-          <fildset>Mascota: {props.mascota} </fildset>
+          <fildset>Mascota: {props.data.mascota} </fildset>
 
           <br></br>
-          <fildset>Dueño: {props.dueño}</fildset>
+          <fildset>Dueño: {props.data.dueno}</fildset>
           <br></br>
-          <fildset>Fecha: {props.fecha} </fildset>
+          <fildset>Fecha: {props.data.fecha} </fildset>
           <br></br>
-          <fildset>Hora: {props.hora}</fildset>
+          <fildset>Hora: {props.data.hora}</fildset>
           <br></br>
-          <fildset>Sintomas: {props.sintomas}</fildset>
+          <fildset>Sintomas: {props.data.sintomas}</fildset>
           <br></br>
           <button onClick={handleClick}>Eliminar</button>
         </h3>
